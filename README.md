@@ -63,11 +63,21 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+  
+  went to Postman to create a new toy and it gave me a NameError in the ToysController. Figured out that it wasn't "Toys.create" but "Toy.create"
 
 - Update the number of likes for a toy
 
   - How I debugged:
 
+  went to Postman to update(PATCH) new number of likes and it gave error of RoutingError: No route matches [PATCH] "toys".
+
+  Went to ToysController and the update action was missing "render json: toy". Added that.
+
+  In Postman, made sure I specified the specific ID number to PATCH (localhost:4000/toys/9).
+
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+
+  Added :destroy to the routes because it was missing.
